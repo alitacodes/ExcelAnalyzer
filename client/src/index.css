@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient-to-br from-green-50 via-white to-green-100 min-h-screen;
+  font-family: 'Inter', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #e5e7eb;
+}
+::-webkit-scrollbar-thumb {
+  background: #a7f3d0;
+  border-radius: 8px;
+}
+
+/* Smooth transitions for interactive elements */
+button, a, input, .card {
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Custom Animations */
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.7s ease-in;
+  }
+  .animate-fadeInDown {
+    animation: fadeInDown 0.7s cubic-bezier(0.4,0,0.2,1);
+  }
+  .animate-slideInDown {
+    animation: slideInDown 0.7s cubic-bezier(0.4,0,0.2,1);
+  }
+  .animate-bounceIn {
+    animation: bounceIn 0.7s cubic-bezier(0.68,-0.55,0.27,1.55);
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideInDown {
+    from { opacity: 0; transform: translateY(-60px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+  }
+  /* Moving background shapes */
+  .animate-shapeMove1 {
+    animation: shapeMove1 12s ease-in-out infinite alternate;
+  }
+  .animate-shapeMove2 {
+    animation: shapeMove2 14s ease-in-out infinite alternate;
+  }
+  .animate-shapeMove3 {
+    animation: shapeMove3 16s ease-in-out infinite alternate;
+  }
+  @keyframes shapeMove1 {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(40px) scale(1.1) rotate(10deg); }
+    100% { transform: translateY(-30px) scale(0.95) rotate(-8deg); }
+  }
+  @keyframes shapeMove2 {
+    0% { transform: translateX(0) scale(1); }
+    50% { transform: translateX(-30px) scale(1.08) rotate(-12deg); }
+    100% { transform: translateX(40px) scale(0.92) rotate(8deg); }
+  }
+  @keyframes shapeMove3 {
+    0% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(-30px, 20px) scale(1.12) rotate(6deg); }
+    100% { transform: translate(30px, -20px) scale(0.9) rotate(-6deg); }
+  }
+  /* Jumping arrow animation */
+  .animate-bounceArrow {
+    animation: bounceArrow 1.2s infinite cubic-bezier(0.68,-0.55,0.27,1.55);
+  }
+  @keyframes bounceArrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(18px); }
+  }
+}
+
+
