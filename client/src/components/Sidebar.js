@@ -69,7 +69,7 @@ export default function Sidebar() {
             </button>
           </div>
           <div className="px-6">
-            <div className="text-gray-500 font-semibold mb-2 mt-2">Navigation</div>
+            <div className="text-gray-500 font-semibold mb-2 mt-2">Contents</div>
             <nav className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <NavLink
