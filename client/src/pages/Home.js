@@ -1,130 +1,119 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { FiUploadCloud, FiBarChart2, FiDownload, FiShield, FiArrowDown } from "react-icons/fi";
-
-const features = [
-  {
-    icon: <FiUploadCloud className="text-4xl text-green-500 mb-2" />,
-    title: "Smart Upload",
-    desc: "Drag & drop .xls and .xlsx files with intelligent parsing and validation",
-  },
-  {
-    icon: <FiBarChart2 className="text-4xl text-green-500 mb-2" />,
-    title: "Interactive Charts",
-    desc: "Generate stunning 2D and 3D visualizations with real-time interactions",
-  },
-  {
-    icon: <FiDownload className="text-4xl text-green-500 mb-2" />,
-    title: "Export Options",
-    desc: "Download your charts as high-quality PNG or professional PDF files",
-  },
-  {
-    icon: <FiShield className="text-4xl text-green-500 mb-2" />,
-    title: "Secure Platform",
-    desc: "Enterprise-grade security with JWT authentication and role-based access",
-  },
-];
-
-const steps = [
-  {
-    title: "Upload Your File",
-    desc: "Drag and drop your Excel file and we'll parse the data automatically with smart validation",
-  },
-  {
-    title: "Configure Visualization",
-    desc: "Select your X and Y axes, choose from multiple chart types including 3D options",
-  },
-  {
-    title: "Analyze & Export",
-    desc: "Generate interactive charts, gain insights, and export as professional-quality images or PDFs",
-  },
-];
+import { FiBarChart2, FiUploadCloud, FiShield, FiZap, FiCheckCircle, FiChevronDown } from "react-icons/fi";
+import { FaLinkedin, FaGithub, FaEnvelope, FaXTwitter } from "react-icons/fa6";
 
 export default function Home() {
   return (
-    <div className="relative overflow-hidden min-h-[90vh] flex flex-col items-center justify-center px-2 md:px-0 animate-fadeIn">
-      {/* Moving background shapes */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10">
-        <div className="absolute bg-green-200 opacity-60 rounded-full w-72 h-72 blur-2xl animate-shapeMove1 left-[-6rem] top-[-6rem]" />
-        <div className="absolute bg-purple-200 opacity-50 rounded-full w-60 h-60 blur-2xl animate-shapeMove2 right-[-5rem] top-20" />
-        <div className="absolute bg-yellow-100 opacity-60 rounded-full w-40 h-40 blur-2xl animate-shapeMove3 left-1/2 bottom-[-4rem]" />
-      </div>
+    <div className="relative min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
+      {/* Decorative background shapes */}
+      {/* <div className="absolute inset-0 pointer-events-none -z-10">
+        <div className="absolute top-[-80px] left-[-80px] w-72 h-72 bg-green-200 rounded-full blur-3xl opacity-40 animate-float-slow"></div>
+        <div className="absolute top-20 right-[-60px] w-60 h-60 bg-green-100 rounded-full blur-2xl opacity-30 animate-float"></div>
+        <div className="absolute bottom-[-60px] left-1/2 w-40 h-40 bg-green-300 rounded-full blur-2xl opacity-20 animate-float-reverse"></div>
+      </div> */}
+
       {/* Hero Section */}
-      <div className="flex flex-col items-center justify-center py-12 animate-fadeInDown">
-        <div className="flex items-center gap-4 mb-4 animate-bounceIn">
-          <span className="bg-green-100 p-4 rounded-2xl shadow-lg">
-            <FiBarChart2 className="text-5xl text-green-600" />
-          </span>
-          <span className="bg-green-100 p-4 rounded-2xl shadow-lg">
-            <FiBarChart2 className="text-5xl text-green-600 rotate-45" />
-          </span>
-        </div>
-        <h1 className="text-4xl md:text-6xl font-extrabold text-green-700 mb-4 animate-slideInDown text-center">
-          Transform Your Excel Data
+      <section className="w-full flex flex-col items-center justify-center py-24 px-4 text-center min-h-[60vh] flex-grow">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-green-700 mb-4 drop-shadow-lg transition-all duration-500">
+          ExZi: Excel Analytics, Reimagined
         </h1>
-        <p className="text-lg md:text-2xl text-gray-600 mb-8 text-center animate-fadeIn delay-200">
-          Upload, analyze, and visualize your Excel data with powerful 2D and 3D charts.<br />Turn spreadsheets into stunning insights in seconds.
+        <p className="text-xl md:text-2xl text-green-900 mb-8 max-w-2xl mx-auto transition-all duration-500">
+          Instantly visualize, analyze, and share your Excel data with beautiful charts and smart insights. No coding required.
         </p>
-        <div className="flex flex-col md:flex-row gap-4 animate-bounceIn">
-          <Link
-            to="/dashboard"
-            className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-green-700 transition-all"
-          >
-            Start Analyzing
-          </Link>
-          <Link
-            to="/admin"
-            className="bg-white border border-green-600 text-green-700 px-8 py-4 rounded-lg text-lg font-semibold shadow hover:bg-green-50 transition-all"
-          >
-            Admin Access
-          </Link>
-        </div>
-        {/* Jumping scroll arrow */}
-        <div className="flex flex-col items-center mt-6">
-          <FiArrowDown className="text-4xl text-green-400 animate-bounceArrow" />
-        </div>
-      </div>
-      {/* Features */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12 mb-16 w-full max-w-6xl animate-fadeIn">
-        {features.map((f, i) => (
-          <div
-            key={f.title}
-            className={`bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border border-green-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl animate-fadeIn delay-[${i * 100}ms]`}
-          >
-            {f.icon}
-            <div className="text-xl font-bold text-green-700 mb-2">{f.title}</div>
-            <div className="text-gray-500 text-base">{f.desc}</div>
+        <a href="/upload" className="inline-block bg-green-500 hover:bg-green-600 text-white text-lg font-bold py-4 px-10 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 animate-bounce mt-4" style={{ marginTop: '10px' }}>
+          Get Started for Free
+        </a>
+      </section>
+
+      {/* Our Services Section */}
+      <section className="max-w-5xl mx-auto py-16 px-4 animate-fadeInDown">
+        <h2 className="text-3xl font-extrabold text-green-700 mb-8 text-center mt-10" style={{ marginTop: '40px' }}>Services we provide</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center hover:scale-105 transition-transform duration-300">
+            <FiUploadCloud className="text-5xl text-green-400 mb-4 animate-pulse" />
+            <h3 className="text-xl font-bold text-green-700 mb-2">Excel Upload & Parsing</h3>
+            <p className="text-gray-600">Upload .xls/.xlsx files, automatic parsing, and smart data validation for seamless onboarding.</p>
           </div>
-        ))}
-      </div>
-      {/* How It Works */}
-      <div className="w-full max-w-4xl mx-auto mt-8 mb-16 animate-fadeIn">
-        <h2 className="text-3xl font-extrabold text-green-700 text-center mb-8 animate-fadeInDown">How ExZi Works</h2>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-          {steps.map((step, i) => (
-            <div key={step.title} className="flex flex-col items-center animate-fadeIn delay-[${i * 150}ms]">
-              <div className="w-16 h-16 rounded-full bg-green-200 flex items-center justify-center text-2xl font-bold text-green-700 mb-2 shadow-lg">
-                {i + 1}
-              </div>
-              <div className="text-lg font-bold text-green-700 mb-1 text-center">{step.title}</div>
-              <div className="text-gray-500 text-center text-base max-w-xs">{step.desc}</div>
-            </div>
-          ))}
+          <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center hover:scale-105 transition-transform duration-300">
+            <FiBarChart2 className="text-5xl text-green-400 mb-4 animate-pulse" />
+            <h3 className="text-xl font-bold text-green-700 mb-2">Chart Visualization</h3>
+            <p className="text-gray-600">Create interactive 2D & 3D charts, customize axes, and visualize your data instantly.</p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center hover:scale-105 transition-transform duration-300">
+            <FiShield className="text-5xl text-green-400 mb-4 animate-pulse" />
+            <h3 className="text-xl font-bold text-green-700 mb-2">Data Security & Privacy</h3>
+            <p className="text-gray-600">Your data is encrypted, private, and never shared. Role-based access for admins and users.</p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center hover:scale-105 transition-transform duration-300 md:col-span-1">
+            <FiZap className="text-5xl text-green-400 mb-4 animate-pulse" />
+            <h3 className="text-xl font-bold text-green-700 mb-2">Export & Sharing</h3>
+            <p className="text-gray-600">Export charts as PNG/PDF or share insights with your team in one click.</p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center hover:scale-105 transition-transform duration-300 md:col-span-2">
+            <FiCheckCircle className="text-5xl text-green-400 mb-4 animate-pulse" />
+            <h3 className="text-xl font-bold text-green-700 mb-2">History & Admin</h3>
+            <p className="text-gray-600">Track your uploads, view chart history, and manage users with an intuitive admin dashboard.</p>
+          </div>
         </div>
-      </div>
-      {/* Call to Action */}
-      <div className="w-full max-w-3xl mx-auto mb-16 animate-fadeIn">
-        <div className="bg-gradient-to-r from-green-500 to-green-400 rounded-2xl shadow-xl p-10 flex flex-col items-center">
-          <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-4 text-center">Ready to Transform Your Data?</h3>
-          <p className="text-white text-lg mb-6 text-center">Join thousands of users who trust ExZi for their data visualization needs</p>
-          <Link
-            to="/upload"
-            className="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-semibold shadow hover:bg-green-50 transition-all"
-          >
-            Get Started Free
-          </Link>
+      </section>
+
+      {/* How it Works Section (merged, not as cards) */}
+      <section className="max-w-4xl mx-auto py-16 px-4 animate-fadeIn">
+        <h2 className="text-3xl font-extrabold text-green-700 mb-8 text-center">How it Works</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div>
+            <FiUploadCloud className="text-4xl text-green-400 mb-2 animate-bounce mx-auto" />
+            <span className="block text-lg font-semibold text-green-700 mb-1">1. Upload</span>
+            <span className="text-gray-600">Drag & drop your Excel file or select from your device.</span>
+          </div>
+          <div>
+            <FiBarChart2 className="text-4xl text-green-400 mb-2 animate-bounce mx-auto" />
+            <span className="block text-lg font-semibold text-green-700 mb-1">2. Visualize</span>
+            <span className="text-gray-600">Choose chart type, configure axes, and generate beautiful charts.</span>
+          </div>
+          <div>
+            <FiZap className="text-4xl text-green-400 mb-2 animate-bounce mx-auto" />
+            <span className="block text-lg font-semibold text-green-700 mb-1">3. Share & Export</span>
+            <span className="text-gray-600">Export charts as PNG/PDF or share insights with your team.</span>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Testimonials/Trust Section */}
+      <section className="max-w-4xl mx-auto py-16 px-4 animate-fadeInUp">
+        <h2 className="text-3xl font-extrabold text-green-700 mb-8 text-center">Trusted by Data-Lovers</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center">
+            <FiCheckCircle className="text-3xl text-green-400 mb-2" />
+            <p className="text-gray-700 italic mb-2">"ExZi made my reporting 10x faster. The 3D charts wowed my team!"</p>
+            <span className="text-green-700 font-semibold">— Analyst, FinTech</span>
+          </div>
+          <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center">
+            <FiCheckCircle className="text-3xl text-green-400 mb-2" />
+            <p className="text-gray-700 italic mb-2">"Super easy to use, and I love the privacy-first approach."</p>
+            <span className="text-green-700 font-semibold">— Product Manager, SaaS</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer with Socials */}
+      <footer className="w-full py-8 bg-gradient-to-r from-green-100 to-green-200 flex flex-col items-center mt-12 animate-fadeInUp">
+        <div className="flex gap-8 mb-4">
+          <a href="https://www.linkedin.com/in/sneha-mandal-36938432b/" target="_blank" rel="noopener noreferrer" className="text-green-700 hover:text-green-500 text-3xl transition-colors duration-200">
+            <FaLinkedin />
+          </a>
+          <a href="https://github.com/alitacodes" target="_blank" rel="noopener noreferrer" className="text-green-700 hover:text-green-500 text-3xl transition-colors duration-200">
+            <FaGithub />
+          </a>
+          <a href="mailto:snehaman1010@gmail.com" className="text-green-700 hover:text-green-500 text-3xl transition-colors duration-200">
+            <FaEnvelope />
+          </a>
+          <a href="https://x.com/SnehaM01" target="_blank" rel="noopener noreferrer" className="text-green-700 hover:text-green-500 text-3xl transition-colors duration-200">
+            <FaXTwitter />
+          </a>
+        </div>
+        <div className="text-green-800 font-semibold">© {new Date().getFullYear()} ExZi. Built by Sneha Mandal.</div>
+      </footer>
     </div>
   );
 } 

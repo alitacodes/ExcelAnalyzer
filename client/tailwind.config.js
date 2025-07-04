@@ -5,7 +5,9 @@ module.exports = {
     "./public/index.html"
   ],
   theme: {
-    extend: {},
+    extend: {
+      // Remove any custom keyframes and animation entries for 'float', 'float-reverse', 'float-slow' if present
+    },
   },
   plugins: [],
 }
